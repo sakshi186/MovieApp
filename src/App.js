@@ -8,7 +8,6 @@ import AddFavourites from './components/AddFavourites';
 import RemoveFavourites from './components/RemoveFavourites';
 
 
-
 function App() {
 
   const[movies,setMovies]=useState([])
@@ -31,15 +30,22 @@ function App() {
 		getMovieRequest(searchValue);
 	}, [searchValue]);
 
+	const saveToLocalStorage=(items)=>{
+		localStorage.setItem("react-movie-app",JSON.stringify(items))
+	}
+
   const addFavouriteMovie = (movie) => {
 		const newFavouriteList = [...favourites, movie];
 		setFavourites(newFavouriteList);
+		saveToLocalStorage(newFavouriteList);
 	
 	};
   const removeFavouriteMovie=(movie)=>{
 		const newFavouriteList=favourites.filter(
 			(favourite)=>favourite.imdbID !==movie.imdbID
-		)
+		);
+		setFavourites(newFavouriteList);
+		saveToLocalStorage(newFavouriteList)
   }
   return (
           <div className="container-fluid movie-app">

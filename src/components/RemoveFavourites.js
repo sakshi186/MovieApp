@@ -4,12 +4,12 @@ const RemoveFavourites=()=>{
 
     return(
         <>
-          <span className="mr-2">Remove From Favourites</span>
+          <span className="mr-2 text-white">Remove From Favourites</span>
           <svg 
                xmlns="http://www.w3.org/2000/svg"
                width="16"
                height="16" 
-               fill="currentColor" 
+               fill="white" 
                class="bi bi-x-square"
                viewBox="0 0 16 16">
               <path 
